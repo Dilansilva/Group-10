@@ -243,12 +243,11 @@
         <button type="button" class="btn btn-danger">DELETE ROW</button><br><br>
 
 
-            <div class="col-sm-4" id="pay">
+            <div class="col-sm-4" id="repay">
             
                             <div class="text-left">
                                 <lable>Total</lable><br>
-                                <input type="text" id="total" class="form-control" name="total" placeholder="total"
-                                    disabled>
+                                <input type="text" id="total" class="form-control" name="total" placeholder="total" disabled>
                             </div><br>
 
 
@@ -456,19 +455,23 @@
                     $(document).ready(function()
                     {
                         var amount = $("#amount").val();
-                        $(this).keyup(function(){ 
-                            var sum = 0;
+                        var sum=0;
+
+                        $("#quantity").keyup(function(){ 
                             var amount = $("#amount");                            
                             jQuery.each(amount,function(){
                                 sum =sum + parseInt($("#amount").val());
                             });
                             $('#total').val(sum);
                         });
+                        $('#total').val(sum);
                     })
                    
-
-
-                   
+                      //get due value
+                      $("#pay").keyup(function () 
+                    {
+                        $('#due').val($('#pay').val() - $('#total').val());
+                    });
 
                     //reset total 
                     $(document).ready(function()
@@ -476,8 +479,8 @@
                         $('.btn-secondary').click(function(){				
                            
                                 /*Clear all input type="text" box*/
-                                $('#pay input[type="text"]').val('');
-                                $('#pay select').val('');
+                                $('#repay input[type="text"]').val('');
+                                $('#repay select').val('');
                                 /*Clear textarea using id */
                                 //$('#form1 #txtAddress').val('');
                             					
