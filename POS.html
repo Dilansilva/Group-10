@@ -170,10 +170,22 @@
                 <br>
                 <form autocomplete="off" action="/action_page.php">
                     <div class="autocomplete" style="width:300px;">
-                      <input id="myInput" type="text" name="myCountry">
-                    </div>
+                      <!--<input id="myInput" type="text" name="myCountry">-->
                     
-                </form> 
+                <select name="countries []" class="col-sm-12 select-item" multiple="multiple"id="myInput">
+                    <option value="Panadol" data-price="20.00">Panadol</option>
+                    <option value="Ibuprofen Tablets" data-price="200.00">Ibuprofen Tablets</option>
+                    <option value="Amocsisilin" data-price="30.00">Amocsisilin</option>
+                    <option value="Piriton" data-price="100.00">Piriton</option>
+                    <option value="Seline 500ml" data-price="300.00">Seline 500ml</option>
+                    <option value="vitamin C" data-price="50.00">vitamin C</option>
+                    <option value="Elastic Bandage" data-price="200.00">Elastic Bandage</option>
+                    <option value="Asthaline Inhaler" data-price="450.00">Asthaline Inhaler</option>
+                    <option value="Vitamin E" data-price="100.00 ">Vitamin E</option>
+                    </select>
+                </div>
+                    
+            </form> 
             </div>
 
 
@@ -187,14 +199,14 @@
             <div class="col-2">
                 <br>
                 <div style="width:300px;">
-                    <input id="quantity" type="number" placeholder="0" required>
+                    <input id="quantity" type="text" placeholder="0" required>
                 </div>
             </div>
 
             <div class="col-2">
                 <br>
                 <div style="width:300px;">
-                    <input id="amount" type="text" placeholder="0.00" >
+                    <input id="amount" type="text" placeholder="0.00" disabled>
                 </div>
             </div>
 
@@ -374,11 +386,26 @@
                     autocomplete(document.getElementById("myInput"), countries);
 
 
-                   
+                    //add unit price 
+                    $('.select-item').click(function() 
+                    {
+                        var price = 0;
+                        $('option:selected', $(this)).each(function() {
+                            console.log($(this).data('price'));
+                            price += $(this).data('price');
+                        });
+                        $('#uprice').val(price);
+                    });
+
+                    
+                    //cal amount
+                    $("#uprice,#quantity").keyup(function () 
+                    {
+                        $('#amount').val($('#uprice').val() * $('#quantity').val());
+                    });
 
 
-
-
+                    //add new row to table
                     $(document).ready(function()
                     {
                         $(".btn-success").click(function()
@@ -393,6 +420,7 @@
                     
                     });    
 
+                    //reset form value
                     $(document).ready(function()
                     {
                         $('.btn-dark').click(function(){				
@@ -407,7 +435,7 @@
                         });
 	                });
                 
-                        
+                    //delete table row
                         $(document).ready(function()
                     {
                         // Find and remove selected table rows
@@ -424,21 +452,25 @@
                     });  
 
 
+                    //get total
                     $(document).ready(function()
                     {
+                        var amount = $("#amount").val();
                         $(this).keyup(function(){ 
                             var sum = 0;
                             var amount = $("#amount");                            
                             jQuery.each(amount,function(){
-                                sum += parseInt($(this).val());
+                                sum =sum + parseInt($("#amount").val());
                             });
                             $('#total').val(sum);
                         });
                     })
+                   
+
 
                    
 
-                    
+                    //reset total 
                     $(document).ready(function()
                     {
                         $('.btn-secondary').click(function(){				
