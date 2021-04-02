@@ -1,125 +1,460 @@
 <html>
 
 <head>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+    </script>
 
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+     <link rel="stylesheet" href="assets/libs/css/style.css">
+     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+     <title>Concept - Bootstrap 4 Admin Dashboard Template</title>
+ </head>
 </head>
+
+
 
 <body>
 
-    <div class="container-fluid">
-        <div class="row" align="center">
 
-            <form class="form-horizontal" id="frmbil">
-                <div class="form-group" align="right">
-                    <table class="table table-bordered" id="frmproduct">
-                        <caption>Add Product</caption>
-
-                        <tr>
-                            <th>Medicine Name</th>
-                            <th>Unit Price</th>
-                            <th>Quantity</th>
-                            <th>Amount</th>
-                            <th>Option</th>
-                        </tr>
-
-                        <tr>
-
-                            <td>
-                                <input type="text" id="medicinename" class="from-control" name="medicinename"
-                                    placeholder="medicinename" required>
-                            </td>
-
-                            <td>
-                                <input type="text" id="unitprice" class="from-control" name="unitprice"
-                                    placeholder="unitprice" disabled>
-                            </td>
-
-                            <td>
-                                <input type="number" id="quantity" class="from-control" name="quantity"
-                                    placeholder="quantity" min="1" value="1" required>
-                            </td>
-
-                            <td>
-                                <input type="text" id="amount" class="from-control" name="amount" placeholder="0.00"
-                                    disabled>
-                            </td>
-
-                            <td>
-                                <button class="btn btn-success" type="button" onclick="addproduct()">Add</button>
-                            </td>
-                        </tr>
-                    </table>
-
-                    <table class="table table-bordered" id="list">
-                        <thead>
-                            <tr>
-                                <th>Remove</th>
-                                <th>Medicine Name</th>
-                                <th>Unit Price</th>
-                                <th>Quantity</th>
-                                <th>Amount</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                        </tbody>
-                    </table>
+    <!-- ============================================================== -->
+    <!-- main wrapper -->
+    <!-- ============================================================== -->
+    <div class="dashboard-main-wrapper">
+        <!-- ============================================================== -->
+        <!-- navbar -->
+        <!-- ============================================================== -->
+        <div class="dashboard-header">
+            <nav class="navbar navbar-expand-lg bg-white fixed-top">
+                <a class="navbar-brand" href="index.html">PHARMACY</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto navbar-right-top">
+                        <li class="nav-item">
+                            <div id="custom-search" class="top-search-bar">
+                                <input class="form-control" type="text" placeholder="Search..">
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-
-            </form>
-
+            </nav>
         </div>
+        <!-- ============================================================== -->
+        <!-- end navbar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- left sidebar -->
+        <!-- ============================================================== -->
+        <div class="nav-left-sidebar sidebar-dark">
+            <div class="menu-list">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav flex-column">
+                            <li class="nav-divider">
+                                Menu
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="./ecommerce-product.html"><i
+                                        class="fa fa-fw fa-user-circle"></i>HOME<span
+                                        class="badge badge-success">6</span></a>
+                                
+                            </li>
 
-        <div class="col-sm-4">
-            <div class="col s12 m6 offset-m4">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#"><i class="fa fa-fw fa-rocket"></i>POS</a>
+                                
+                            </li>
 
-                <div class="form-group" align="left">
-                    <lable>Total</lable>
-                    <input type="text" id="total" class="form-control" name="total" placeholder="total" disable>
-                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./discount.html"><i class="fas fa-fw fa-chart-pie"></i>DISCOUNT</a>
+                            </li>
 
+                            <li class="nav-item ">
+                                <a class="nav-link" href="#"><i class="fab fa-fw fa-wpforms"></i>PURCHESING</a>
+                            </li>
 
-                <div class="form-group" align="left">
-                    <lable>Pay</lable>
-                    <input type="text" id="pay" class="form-control" name="pay" placeholder="pay">
-                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./expire-date.html"><i class="fas fa-fw fa-table"></i>EXPIR DETAILS</a>
+                            </li>
 
-                <div class="form-group" align="left">
-                    <lable>Due</lable>
-                    <input type="text" id="due" class="form-control" name="due" placeholder="due">
-                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./add new-product.html"><i class="fas fa-fw fa-file"></i>
+                                    MEDICINE</a>
+                            </li>
 
-                <div class="form-group" align="left">
-                    <lable>Payment Status</lable>
-                    <select class="form-control" id="pstatus" name="pstatus">
-                        <option value="">please Select</option>
-                        <option value="1">Cash</option>
-                        <option value="1">Card</option>
-                </div>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./customer.html"><i class="fas fa-fw fa-inbox"></i>COSTOMER<span
+                                        class="badge badge-secondary">New</span></a>
+                            </li>
 
-                <div align="right">
-                    <button type="button" class="btn btn-info" id="save" onclick="AddNew()">Print</button>
-                    <button type="button" class="btn btn-warning" id="reset" onclick="">Reset</button>
-
-                </div>
-
+                            <li class="nav-item">
+                                <a class="nav-link" href="./minimum-pill.html"><i class="fas fa-fw fa-columns"></i>PILL QUANTITY</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
         </div>
+        <!-- ============================================================== -->
+        <!-- end left sidebar -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <div class="dashboard-wrapper">
+            <div class="dashboard-ecommerce">
+                <div class="container-fluid dashboard-content ">
+                    <!-- ============================================================== -->
+                    <!-- pageheader  -->
+                    <!-- ============================================================== -->
+
+                </div>
+
+    <div class="jumbotron">
+        <br>
+        <h1 class="text-center"><u>POINT OF SALES SYSTEM</u>
+        </h1><br><br>
+        <div class="row">
+            <div class="col-3">
+                <b>MEDICINE NAME</b>
+            </div>
+
+            <div class="col-2">
+                <b>UNIT PRICE</b>
+            </div>
+
+            <div class="col-2">
+                <b>QUATITY</b>
+            </div>
+
+            <div class="col-2">
+                <b>AMOUNT</b>
+            </div>
+
+            <div class="col-1">
+                <b>ADD</b>
+            </div>
+
+            <div class="col-1">
+                <b>RESET</b>
+            </div>
+
+
+        </div>
+
+        <div class="row" id="element">
+            <div class="col-3">
+                <br>
+                <form autocomplete="off" action="/action_page.php">
+                    <div class="autocomplete" style="width:300px;">
+                      <input id="myInput" type="text" name="myCountry">
+                    </div>
+                    
+                </form> 
+            </div>
+
+
+            <div class="col-2">
+                <br>
+                <div style="width:300px;">
+                    <input id="uprice" type="text" placeholder="0.00" disabled>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <br>
+                <div style="width:300px;">
+                    <input id="quantity" type="number" placeholder="0" required>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <br>
+                <div style="width:300px;">
+                    <input id="amount" type="text" placeholder="0.00" >
+                </div>
+            </div>
+
+            <div class="col-1">
+                <br>
+                <button type="button" class="btn btn-success">ADD</button>
+            </div>
+
+            <div class="col-1">
+                <br>
+                <button type="button" class="btn btn-dark" >RESET</button>
+            </div>
+        </div><br>
+
+        <table id=" table" class="table">
+
+            <thead>
+                <tr>
+                    <th scope="col">MEDICINE NAME</th>
+                    <th scope="col">UNIT PRICE</th>
+                    <th scope="col">QUANTITY</th>
+                    <th scope="col">AMOUNT</th>
+                    <th scope="col">DELETE</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+            </tbody>
+
+        </table><br><br>
+
+        <button type="button" class="btn btn-danger">DELETE ROW</button><br><br>
+
+
+            <div class="col-sm-4" id="pay">
+            
+                            <div class="text-left">
+                                <lable>Total</lable><br>
+                                <input type="text" id="total" class="form-control" name="total" placeholder="total"
+                                    disabled>
+                            </div><br>
+
+
+                            <div class="text-left">
+                                <lable>Pay</lable><br>
+                                <input type="text" id="pay" class="form-control" name="pay" placeholder="pay">
+                            </div><br>
+
+                            <div class="text-left">
+                                <lable>Due</lable><br>
+                                <input type="text" id="due" class="form-control" name="due" placeholder="due" disabled>
+                            </div><br>
+
+                            
+                            <div class="text-left" id="select">
+                                <lable>Payment Status</lable><br>
+                                <select class="form-control" id="pstatus" name="pstatus">
+                                    <option value="">please Select</option>
+                                    <option value="1">Cash</option>
+                                    <option value="1">Card</option>
+                                </select>
+                            </div><br>
+
+                            <div class="text-left"></div>
+                             <button type="button" class="btn btn-secondary">RESET</button>
+                            </div><br>
+
+               
+            </div><br><br><br>
+
     </div>
 
-</body>
+            <script>
+                    function autocomplete(inp, arr) {
+                         /*the autocomplete function takes two arguments,
+                            the text field element and an array of possible autocompleted values:*/
+                        var currentFocus;
+                            /*execute a function when someone writes in the text field:*/
+                        inp.addEventListener("input", function(e) {
+                            var a, b, i, val = this.value;
+                            /*close any already open lists of autocompleted values*/
+                            closeAllLists();
+                            if (!val) { return false;}
+                            currentFocus = -1;
+                            /*create a DIV element that will contain the items (values):*/
+                            a = document.createElement("DIV");
+                            a.setAttribute("id", this.id + "autocomplete-list");
+                            a.setAttribute("class", "autocomplete-items");
+                            /*append the DIV element as a child of the autocomplete container:*/
+                            this.parentNode.appendChild(a);
+                            /*for each item in the array...*/
+                            for (i = 0; i < arr.length; i++) {
+                            /*check if the item starts with the same letters as the text field value:*/
+                            if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                            /*create a DIV element for each matching element:*/
+                            b = document.createElement("DIV");
+                            /*make the matching letters bold:*/
+                            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+                            b.innerHTML += arr[i].substr(val.length);
+                            /*insert a input field that will hold the current array item's value:*/
+                            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                            /*execute a function when someone clicks on the item value (DIV element):*/
+                            b.addEventListener("click", function(e) {
+                                /*insert the value for the autocomplete text field:*/
+                                inp.value = this.getElementsByTagName("input")[0].value;
+                                /*close the list of autocompleted values,
+                                (or any other open lists of autocompleted values:*/
+                                closeAllLists();
+                            });
+                            a.appendChild(b);
+                            }
+                        }
+                    });
+                    /*execute a function presses a key on the keyboard:*/
+                    inp.addEventListener("keydown", function(e) {
+                        var x = document.getElementById(this.id + "autocomplete-list");
+                        if (x) x = x.getElementsByTagName("div");
+                        if (e.keyCode == 40) {
+                            /*If the arrow DOWN key is pressed,
+                            increase the currentFocus variable:*/
+                            currentFocus++;
+                            /*and and make the current item more visible:*/
+                            addActive(x);
+                        } else if (e.keyCode == 38) { //up
+                            /*If the arrow UP key is pressed,
+                            decrease the currentFocus variable:*/
+                            currentFocus--;
+                            /*and and make the current item more visible:*/
+                            addActive(x);
+                        } else if (e.keyCode == 13) {
+                            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+                            e.preventDefault();
+                            if (currentFocus > -1) {
+                            /*and simulate a click on the "active" item:*/
+                            if (x) x[currentFocus].click();
+                            }
+                        }
+                    });
+                    function addActive(x) {
+                        /*a function to classify an item as "active":*/
+                        if (!x) return false;
+                        /*start by removing the "active" class on all items:*/
+                        removeActive(x);
+                        if (currentFocus >= x.length) currentFocus = 0;
+                        if (currentFocus < 0) currentFocus = (x.length - 1);
+                        /*add class "autocomplete-active":*/
+                        x[currentFocus].classList.add("autocomplete-active");
+                    }
+                    function removeActive(x) {
+                        /*a function to remove the "active" class from all autocomplete items:*/
+                        for (var i = 0; i < x.length; i++) {
+                        x[i].classList.remove("autocomplete-active");
+                        }
+                    }
+                    function closeAllLists(elmnt) {
+                        /*close all autocomplete lists in the document,
+                        except the one passed as an argument:*/
+                        var x = document.getElementsByClassName("autocomplete-items");
+                        for (var i = 0; i < x.length; i++) {
+                        if (elmnt != x[i] && elmnt != inp) {
+                            x[i].parentNode.removeChild(x[i]);
+                        }
+                        }
+                    }
+                    /*execute a function when someone clicks in the document:*/
+                    document.addEventListener("click", function (e) {
+                        closeAllLists(e.target);
+                    });
+                    }
+                    
+                    /*An array containing all the country names in the world:*/
+                    var countries = ["Panadol","Ibuprofen Tablets","Amocsisilin","Piriton","Seline 500ml","vitamin C","Elastic Bandage","Asthaline Inhaler","Vitamin E"];
+                    
+                    /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+                    autocomplete(document.getElementById("myInput"), countries);
 
+
+                   
+
+
+
+
+                    $(document).ready(function()
+                    {
+                        $(".btn-success").click(function()
+                        {
+                        var name = $("#myInput").val();
+                        var uprice= $("#uprice").val();
+                        var quantity = $("#quantity").val();
+                        var amount = $("#amount").val();
+                        var markup = "<tr><td>" + name + "</td><td>" + uprice + "</td><td>" + quantity + "</td><td>" + amount + "</td><td><input type='checkbox' name='record'></td></tr>";
+                        $("table tbody").append(markup);
+                        });
+                    
+                    });    
+
+                    $(document).ready(function()
+                    {
+                        $('.btn-dark').click(function(){				
+                           
+                                /*Clear all input type="text" box*/
+                                $('#element input[type="text"]').val('');
+                                $('#element input[type="number"]').val('');
+
+                                /*Clear textarea using id */
+                                //$('#form1 #txtAddress').val('');
+                            					
+                        });
+	                });
+                
+                        
+                        $(document).ready(function()
+                    {
+                        // Find and remove selected table rows
+                        $(".btn-danger").click(function()
+                        {
+                            $("table tbody").find('input[name="record"]').each(function()
+                            {
+                                if($(this).is(":checked"))
+                                {
+                                    $(this).parents("tr").remove();
+                                }
+                            });
+                        });
+                    });  
+
+
+                    $(document).ready(function()
+                    {
+                        $(this).keyup(function(){ 
+                            var sum = 0;
+                            var amount = $("#amount");                            
+                            jQuery.each(amount,function(){
+                                sum += parseInt($(this).val());
+                            });
+                            $('#total').val(sum);
+                        });
+                    })
+
+                   
+
+                    
+                    $(document).ready(function()
+                    {
+                        $('.btn-secondary').click(function(){				
+                           
+                                /*Clear all input type="text" box*/
+                                $('#pay input[type="text"]').val('');
+                                $('#pay select').val('');
+                                /*Clear textarea using id */
+                                //$('#form1 #txtAddress').val('');
+                            					
+                        });
+	                });
+
+        </script>
+
+
+</body>
 
 </html>

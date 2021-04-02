@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Remove HTML Table Selected Row</title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            td:last-child{background-color: #F00;color:#FFF;cursor: pointer;
+                          font-weight: bold;text-decoration: underline}
+        </style>
+    </head>
+    <body>
+        
+        <table id="table" border="1">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Delete</th>
+            </tr>
+            
+            <tr>
+                <td>FN1</td>
+                <td>LN1</td>
+                <td>10</td>
+                <td>remove</td>
+            </tr>
+            
+            <tr>
+                <td>FN2</td>
+                <td>LN2</td>
+                <td>20</td>
+                <td>remove</td>
+            </tr>
+            
+            <tr>
+                <td>FN3</td>
+                <td>LN3</td>
+                <td>30</td>
+                <td>remove</td>
+            </tr>
+            
+            <tr>
+                <td>FN4</td>
+                <td>LN4</td>
+                <td>40</td>
+                <td>remove</td>
+            </tr>
+            
+            <tr>
+                <td>FN5</td>
+                <td>LN5</td>
+                <td>50</td>
+                <td>remove</td>
+            </tr>
+        </table>
+        
+        <script>
+    
+            var index, table = document.getElementById('table');
+            for(var i = 1; i < table.rows.length; i++)
+            {
+                table.rows[i].cells[3].onclick = function()
+                {
+                    var c = confirm("do you want to delete this row");
+                    if(c === true)
+                    {
+                        index = this.parentElement.rowIndex;
+                        table.deleteRow(index);
+                    }
+                    
+                    //console.log(index);
+                };
+                
+            }
+    
+        </script>
+        
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript - Add HTML Table Row </title>
+        <meta charset="windows-1252">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script>
+            
+            function addRow()
+            {
+                // get input values
+                var fname = document.getElementById('fname').value;
+                 var lname = document.getElementById('lname').value;
+                  var age = document.getElementById('age').value;
+                  
+                  // get the html table
+                  // 0 = the first table
+                  var table = document.getElementsByTagName('table')[0];
+                  
+                  // add new empty row to the table
+                  // 0 = in the top 
+                  // table.rows.length = the end
+                  // table.rows.length/2+1 = the center
+                  var newRow = table.insertRow(table.rows.length/2+1);
+                  
+                  // add cells to the row
+                  var cel1 = newRow.insertCell(0);
+                  var cel2 = newRow.insertCell(1);
+                  var cel3 = newRow.insertCell(2);
+                  
+                  // add values to the cells
+                  cel1.innerHTML = fname;
+                  cel2.innerHTML = lname;
+                  cel3.innerHTML = age;
+            }
+            
+        </script>
+        
+    </head>
+
+    <body>
+        
+        First Name: <input type="text" name="fname" id="fname" /><br/><br/>
+        Last Name: <input type="text" name="lname" id="lname" /><br/><br/>
+        Age: <input type="text" name="age" id="age" /><br/><br/>
+        <button onclick="addRow();">Add Row</button><br/><br/>
+
+        <table border="1">
+            
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+            </tr>
+            
+            <tr>
+                <td>AAAAAA</td>
+                <td>BBBBBB</td>
+                <td>10</td>
+            </tr>
+            
+             <tr>
+                <td>CCC</td>
+                <td>DDDD</td>
+                <td>20</td>
+            </tr>
+            
+             <tr>
+                <td>EEE</td>
+                <td>FFFFF</td>
+                <td>30</td>
+            </tr>
+            
+             <tr>
+                <td>GGGGG</td>
+                <td>HHHH</td>
+                <td>40</td>
+            </tr>
+            
+             <tr>
+                <td>MMMMMM</td>
+                <td>NNNN</td>
+                <td>50</td>
+            </tr>
+            
+        </table>
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>Try jQuery Online</title>
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+  </script>
+    <script>
+        $(document).ready(function() {
+            $("button").click(function() {
+                //$("#d").trigger("reset");
+                //$("#d").get(0).reset();
+                $("#d")[0].reset()
+            });
+        });
+    </script>
+</head>
+  
+<body>
+    <center>
+        <h1 style="color:green">GeeksforGeeks</h1>
+        <h4> 
+        Click on "Submit" to submit and 
+          remaining resets to get form to original state. 
+        </h4>
+        <form id="d" action="/cgi-bin/test.cgi" name="geek">
+            <table cellspacing="0" cellpadding="3" border="1">
+                <tr>
+                    <td align="center">Username</td>
+                    <td>
+                        <input type="text" name="name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">Email</td>
+                    <td>
+                        <input type="text" name="name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">Password</td>
+                    <td>
+                        <input type="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"></td>
+                    <td>
+                        <input type="submit" value="Submit" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center"></td>
+                    <td>
+                        <input type="reset" value="reset button" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <input type="button" 
+               value="reset() outside form" 
+               onclick="geek.reset();" />
+        <button>resetby jQuery</button>
+    </center>
+</body>
+  
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Add / Remove Table Rows Dynamically</title>
+<style>
+    form{
+        margin: 20px 0;
+    }
+    form input, button{
+        padding: 5px;
+    }
+    table{
+        width: 100%;
+        margin-bottom: 20px;
+		border-collapse: collapse;
+    }
+    table, th, td{
+        border: 1px solid #cdcdcd;
+    }
+    table th, table td{
+        padding: 10px;
+        text-align: left;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".add-row").click(function(){
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var markup = "<tr><td><input type='checkbox' name='record'></td><td>" + name + "</td><td>" + email + "</td></tr>";
+            $("table tbody").append(markup);
+        });
+        
+        // Find and remove selected table rows
+        $(".delete-row").click(function(){
+            $("table tbody").find('input[name="record"]').each(function(){
+            	if($(this).is(":checked")){
+                    $(this).parents("tr").remove();
+                }
+            });
+        });
+    });    
+</script>
+</head>
+<body>
+    <form>
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="email" placeholder="Email Address">
+    	<input type="button" class="add-row" value="Add Row">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" name="record"></td>
+                <td>Peter Parker</td>
+                <td>peterparker@mail.com</td>
+            </tr>
+        </tbody>
+    </table>
+    <button type="button" class="delete-row">Delete Row</button>
+</body> 
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Removing the Contents of the Elements in jQuery</title>
+<style>
+.container{
+    padding: 10px;
+    background: #f0e68C;
+    border: 1px solid #bead18;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+    // Empty container div on button click
+    $("button").click(function(){
+       $(".container").empty();
+    });
+});
+</script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello World!</h1>
+        <p class="hint"><strong>Note:</strong> If you click the following button it will remove all the contents of the container div including the button.</p>
+        <button type="button">Empty Container</button>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<title>How to show multiple select box value in a input box jQuery</title>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <select name="treatment[]" class="col-sm-12 select-item" multiple="multiple">
+<option value="fish" data-price="200">Biriyani</option>
+<option value="chicken" data-price="110">Chicken</option>
+<option value="chicken" data-price="120">Paneer</option>
+</select>
+    <input type="text" id="total" />
+    <script>
+        $('.select-item').click(function() {
+            var price = 0;
+            $('option:selected', $(this)).each(function() {
+                console.log($(this).data('price'));
+                price += $(this).data('price');
+            });
+            $('#total').val(price);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+var $local_source = [[0,"c++"], [1,"java"], [2,"php"], [3,"coldfusion"], 
+                     [4,"javascript"], [5,"asp"], [6,"ruby"]];
+
+
+
+                     <select name="countries []" class="col-sm-12 select-item" multiple="multiple">
+                        <option value="Panadol" data-price="20.00">Panadol</option>
+                        <option value="Ibuprofen Tablets" data-price="200.00">Ibuprofen Tablets</option>
+                        <option value="Amocsisilin" data-price="30.00">Amocsisilin</option>
+                        <option value="Piriton" data-price="100.00">Piriton</option>
+                        <option value="Seline 500ml" data-price="300.00">Seline 500ml</option>
+                        <option value="vitamin C" data-price="50.00">vitamin C</option>
+                        <option value="Elastic Bandage" data-price="200.00">Elastic Bandage</option>
+                        <option value="Asthaline Inhaler" data-price="450.00">Asthaline Inhaler</option>
+                        <option value="Vitamin E" data-price="100.00 ">Vitamin E</option>
+                        </select>
+                    </div>
+
+
+
+                    $('.select-item').click(function() 
+                    {
+                        var price = 0;
+                        $('option:selected', $(this)).each(function() {
+                            console.log($(this).data('price'));
+                            price += $(this).data('price');
+                        });
+                        $('#uprice').val(price);
+                    });
